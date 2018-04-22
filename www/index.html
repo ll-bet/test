@@ -35,7 +35,7 @@ frame.on("ready", function() {
     var stage = frame.stage;
     var stageW = frame.width;
     var stageH = frame.height;
-    frame.outerColor = "#444";
+
     frame.color = "#ddd";
 
     // see http://zimjs.com/learn.html for video and code tutorials
@@ -48,7 +48,12 @@ frame.on("ready", function() {
     new Circle(100, "orange")
         .center(stage)
         .drag();
-
+frame.on("resize", function(){
+    stageW=frame.width;
+    stageH=frame.height;
+    circle.center(stage);
+    stage.update();
+});
     // without chaining
     // var circle = new Circle(100, "orange");
     // circle.center(stage);
